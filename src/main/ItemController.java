@@ -1,9 +1,12 @@
 package main;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,7 +14,17 @@ import java.util.ResourceBundle;
 public class ItemController extends BorderPane implements Initializable {
 
 
-    public ItemController() {
+    @FXML
+    private Label time;
+
+    @FXML
+    private Label name;
+
+    private File song;
+
+    public ItemController(File song) {
+
+        this.song = song;
 
         FXMLLoader loader = new FXMLLoader();
 
@@ -29,12 +42,12 @@ public class ItemController extends BorderPane implements Initializable {
             throw new RuntimeException(e);
         }
 
+        name.setText(song.getName());
+
     }
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) { }
 
 }
