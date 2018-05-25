@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import java.io.File;
@@ -21,6 +22,9 @@ public class MainController extends BorderPane implements Initializable {
 
     @FXML
     private ListView<ItemController> SongList;
+
+    @FXML
+    private Button FileButton;
 
     @FXML
     private ScrollPane Scroller;
