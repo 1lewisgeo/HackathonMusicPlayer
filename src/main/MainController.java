@@ -3,16 +3,11 @@ package main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
-import javafx.scene.control.Label;
 
-import javax.xml.soap.Text;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -82,13 +77,9 @@ public class MainController extends BorderPane implements Initializable {
         });
 
         this.setOnKeyPressed(press -> {
-
-            if (press.equals(KeyCode.SPACE)) {
-
-
-
+            if (press.getCode().equals(KeyCode.SPACE)) {
+                SongList.getSelectionModel().getSelectedItem().togglePlay();
             }
-
         });
 
         addurl.setOnAction(action -> {
@@ -106,8 +97,6 @@ public class MainController extends BorderPane implements Initializable {
             RPanelProgressLabel.setText(n.length);
 
         });
-
-//        SongList.getItems().add(new ItemController("music.mp3"));
     }
 
     public void deleteItem(ItemController item) {

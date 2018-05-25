@@ -31,19 +31,25 @@
                <bottom>
                   <AnchorPane BorderPane.alignment="CENTER">
                      <children>
-                        <ProgressBar fx:id="RPanelProgressBar" maxWidth="1.7976931348623157E308" prefWidth="280.0" progress="0.0" AnchorPane.leftAnchor="0.0" />
-                        <Label fx:id="RPanelProgressLabel" text="00:00" AnchorPane.rightAnchor="5.0" />
+                        <ProgressBar fx:id="RPanelProgressBar" maxWidth="1.7976931348623157E308" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="50.0">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></ProgressBar>
+                        <Label fx:id="RPanelProgressLabel" text="00:00" AnchorPane.rightAnchor="5.0">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></Label>
                      </children>
                   </AnchorPane>
                </bottom>
                <center>
-                  <ListView fx:id="RPanelListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <ListView fx:id="RPanelListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </BorderPane.margin></ListView>
                </center>
                <top>
                   <BorderPane BorderPane.alignment="CENTER">
-                     <left>
-                        <Label fx:id="RPanelFileLabel" text="FileLocation" BorderPane.alignment="TOP_LEFT" />
-                     </left>
                      <top>
                         <Label fx:id="RPanelNameLabel" alignment="CENTER" contentDisplay="CENTER" text="Name" BorderPane.alignment="CENTER">
                            <font>
@@ -57,14 +63,25 @@
                      <bottom>
                         <HBox BorderPane.alignment="CENTER">
                            <children>
-                              <TextField promptText="New Event" HBox.hgrow="ALWAYS" />
-                              <Button mnemonicParsing="false" text="Add" />
+                              <TextField fx:id="RPanelEventField" promptText="New Event" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="RPanelAddButton" mnemonicParsing="false" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
                            </children>
                            <padding>
                               <Insets bottom="5.0" top="15.0" />
                            </padding>
                         </HBox>
                      </bottom>
+                     <center>
+                        <Label fx:id="RPanelFileLabel" alignment="CENTER" contentDisplay="CENTER" text="FileLocation" BorderPane.alignment="CENTER" />
+                     </center>
                   </BorderPane>
                </top></BorderPane>
          </children>
