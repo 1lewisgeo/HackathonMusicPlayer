@@ -38,7 +38,7 @@ public class ItemController extends BorderPane implements Initializable {
     public String song;
     public AudioClip songClip;
 
-    public double volume;
+    public double volume = 1;
 
     public String length;
 
@@ -49,7 +49,7 @@ public class ItemController extends BorderPane implements Initializable {
         loader.setRoot(this);
         loader.setController(this);
 
-        length = rand(2, 5) + ":" + String.valueOf(rand(0, 6)) + rand(0, 6);
+        length = rand(0, 3) + ":" + String.valueOf(rand(0, 6)) + rand(0, 9);
 
         try {
             loader.load();
