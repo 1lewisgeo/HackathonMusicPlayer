@@ -44,6 +44,9 @@ public class MainController extends BorderPane implements Initializable {
     private Label RPanelProgressLabel;
 
     @FXML
+    private Slider volumeslider;
+
+    @FXML
     private Button addurl;
 
     public MainController() {
