@@ -91,7 +91,7 @@ public class MainController extends BorderPane implements Initializable {
                 RPanelNameLabel.setText(n.song);
                 RPanelFileLabel.setText(n.songFile.getAbsolutePath());
                 RPanelProgressLabel.setText(n.length);
-                volumeSlider.setValue(SongList.getSelectionModel().getSelectedItem().volume * 100);
+                volumeSlider.setValue(n.mp.getVolume() * 100);
             } else {
                 RPanelNameLabel.setText("");
                 RPanelFileLabel.setText("");
@@ -103,7 +103,8 @@ public class MainController extends BorderPane implements Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 if (SongList.getSelectionModel().getSelectedItem() != null) {
-                    SongList.getSelectionModel().getSelectedItem().volume = newValue.doubleValue() / 100;
+                    SongList.getSelectionModel().getSelectedItem().mp.setVolume(newValue.doubleValue() / 100);
+//                    SongList.getSelectionModel().getSelectedItem().volume = newValue.doubleValue() / 100;
                 }
             }
         });
@@ -111,7 +112,8 @@ public class MainController extends BorderPane implements Initializable {
         MasterPause.setOnAction(a -> {
 
             SongList.getItems().forEach(item -> {
-                item.songClip.stop();
+//                item.songClip.stop();
+                item.mp.stop();
             });
 
         });

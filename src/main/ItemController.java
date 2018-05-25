@@ -6,7 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,11 +35,10 @@ public class ItemController extends BorderPane implements Initializable {
 
     private boolean loopb = false;
 
+    public MediaPlayer mp;
+
     public File songFile;
     public String song;
-    public AudioClip songClip;
-
-    public double volume = 1;
 
     public String length;
 
@@ -49,8 +49,6 @@ public class ItemController extends BorderPane implements Initializable {
         loader.setRoot(this);
         loader.setController(this);
 
-        length = rand(0, 3) + ":" + String.valueOf(rand(0, 6)) + rand(0, 9);
-
         try {
             loader.load();
         } catch (IOException e) {
@@ -60,10 +58,12 @@ public class ItemController extends BorderPane implements Initializable {
         this.songFile = songFile;
         this.song = this.songFile.getName();
 
-        this.songClip = new AudioClip("file:" + this.songFile.getAbsolutePath()
-                .replace(" ", "%20").replace("\\", "/"));
+        this.mp = new MediaPlayer(new Media("file:" + this.songFile.getAbsolutePath()
+                .replace(" ", "%20").replace("\\", "/")));
 
         nameLabel.setText(this.song);
+
+        length = rand(0, 3) + ":" + String.valueOf(rand(0, 6)) + rand(0, 9);
 
         pauseButton.setOnAction(action -> {
             this.togglePlay();
@@ -74,21 +74,24 @@ public class ItemController extends BorderPane implements Initializable {
         durationLabel.setText(length);
 
         deleteButton.setOnAction(action -> {
-            this.songClip.stop();
+            this.mp.stop();
             App.controller.deleteItem(this);
+        });
+
+        mp.setOnEndOfMedia(() -> {
+            pauseButton.setText("▶");
         });
     }
 
     public void togglePlay() {
-        if (!this.songClip.isPlaying()) {
-            this.songClip.play(volume);
+        if (!mp.getStatus().equals(MediaPlayer.Status.PLAYING)) {
             if (loopb) {
-                this.songClip.setCycleCount(999);
+                this.mp.setCycleCount(999);
             }
-            this.songClip.play(volume);
+            this.mp.play();
             pauseButton.setText("▌▌");
         } else {
-            this.songClip.stop();
+            this.mp.stop();
             pauseButton.setText("▶");
         }
     }
