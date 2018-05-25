@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <fx:root fx:id="MainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
@@ -18,7 +19,6 @@
       <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
             <Button id="FileButton" fx:id="FileButton" mnemonicParsing="false" styleClass="addbutton" text="Add file" />
-            <Slider fx:id="volumeslider" prefHeight="16.0" prefWidth="388.0" />
          </items></ToolBar>
    </top>
    <bottom>
@@ -62,23 +62,28 @@
                         <Insets bottom="5.0" />
                      </padding>
                      <bottom>
-                        <HBox BorderPane.alignment="CENTER">
+                        <VBox BorderPane.alignment="CENTER">
                            <children>
-                              <TextField fx:id="RPanelEventField" promptText="New Event" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <Button fx:id="RPanelAddButton" mnemonicParsing="false" text="Add">
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </Button>
+                              <Slider fx:id="volumeslider" prefHeight="16.0" prefWidth="388.0" />
+                              <HBox>
+                                 <children>
+                                    <TextField fx:id="RPanelEventField" promptText="New Event" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button fx:id="RPanelAddButton" mnemonicParsing="false" text="Add">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" top="15.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                           <padding>
-                              <Insets bottom="5.0" top="15.0" />
-                           </padding>
-                        </HBox>
+                        </VBox>
                      </bottom>
                      <center>
                         <Label fx:id="RPanelFileLabel" alignment="CENTER" contentDisplay="CENTER" text="FileLocation" BorderPane.alignment="CENTER" />
