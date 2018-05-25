@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class MainController extends BorderPane implements Initializable {
@@ -26,6 +28,8 @@ public class MainController extends BorderPane implements Initializable {
     public MainController() {
 
         FXMLLoader loader = new FXMLLoader();
+
+        System.out.println(MainController.class.getResource("MainWindow.fxml"));
 
         loader.setLocation(MainController.class.getResource("MainWindow.fxml"));
 
@@ -47,6 +51,8 @@ public class MainController extends BorderPane implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         SongList.minWidthProperty().bind(Scroller.widthProperty());
+
+        SongList.maxWidthProperty().bind(Scroller.widthProperty());
 
         SongList.getItems().add(new ItemController(new File("music.mp3")));
 
