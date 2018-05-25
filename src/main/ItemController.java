@@ -56,8 +56,10 @@ public class ItemController extends BorderPane implements Initializable {
         pauseButton.setOnAction(action -> {
             if (!this.songClip.isPlaying()) {
                 this.songClip.play();
+                pauseButton.setText("▌▌");
             } else {
                 this.songClip.stop();
+                pauseButton.setText("▶");
             }
         });
 

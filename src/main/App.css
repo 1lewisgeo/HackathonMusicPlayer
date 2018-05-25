@@ -1,9 +1,26 @@
-.list-cell:odd {
+.list-cell {
     -fx-background-color: white;
+}
+
+.songitem .label {
     -fx-text-fill: black;
 }
 
-.list-cell:even {
-    -fx-background-color: white;
-    -fx-text-fill: black;
+/*.list-cell {
+    -fx-background-color: #282a36;
+    -fx-text-fill: #f8f8f2;
 }
+
+.list-view {
+    -fx-background-color: #282a36;
+}
+
+
+
+.root {
+    -fx-background-color: #282a36;
+}
+
+.manu-bar {
+    -fx-background-color: #282a36;
+}*/

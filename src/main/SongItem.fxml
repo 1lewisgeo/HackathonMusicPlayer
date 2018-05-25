@@ -3,22 +3,24 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-<fx:root maxWidth="250.0" prefWidth="250.0" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+<fx:root maxWidth="250.0" prefWidth="250.0" styleClass="songitem" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
    <right>
       <HBox spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="pauseButton" id="PauseButton" mnemonicParsing="false" text="P" />
-            <Button fx:id="deleteButton" id="DeleteButton" mnemonicParsing="false" text="D" />
+            <Button id="PauseButton" fx:id="pauseButton" mnemonicParsing="false" text="▶" />
+            <Button id="DeleteButton" fx:id="deleteButton" mnemonicParsing="false" text="D" />
          </children>
       </HBox>
    </right>
    <center>
-      <Label fx:id="durationLabel" id="DurationLabel" text="0:00" BorderPane.alignment="CENTER">
+      <Label id="DurationLabel" fx:id="durationLabel" text="0:00" BorderPane.alignment="CENTER">
          <font>
             <Font size="12.0" />
          </font>
@@ -28,7 +30,7 @@
       </Label>
    </center>
    <left>
-      <Label fx:id="nameLabel" id="NameLabel" maxWidth="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <Label id="NameLabel" fx:id="nameLabel" maxWidth="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <font>
             <Font size="12.0" />
          </font>

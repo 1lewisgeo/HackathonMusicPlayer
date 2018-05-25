@@ -50,6 +50,12 @@ public class MainController extends BorderPane implements Initializable {
                 SongList.getItems().add(new ItemController(file));
             }
         });
+
+        SongList.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
+
+        });
+
+//        SongList.getItems().add(new ItemController("music.mp3"));
     }
 
     public void deleteItem(ItemController item) {
