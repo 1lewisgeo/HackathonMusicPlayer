@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ItemController extends BorderPane implements Initializable {
 
@@ -31,6 +32,8 @@ public class ItemController extends BorderPane implements Initializable {
     public File songFile;
     public String song;
     private AudioClip songClip;
+
+    public String length;
     
     public ItemController(File songFile) {
 
@@ -38,6 +41,8 @@ public class ItemController extends BorderPane implements Initializable {
         loader.setLocation(ItemController.class.getResource("SongItem.fxml"));
         loader.setRoot(this);
         loader.setController(this);
+
+        length = rand(2, 5) + ":" + String.valueOf(rand(0, 9)) + rand(0, 9);
 
         try {
             loader.load();
@@ -63,6 +68,8 @@ public class ItemController extends BorderPane implements Initializable {
             }
         });
 
+        durationLabel.setText(length);
+
         deleteButton.setOnAction(action -> {
             this.songClip.stop();
             App.controller.deleteItem(this);
@@ -71,5 +78,9 @@ public class ItemController extends BorderPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { }
+
+    private int rand(int a, int b) {
+        return ThreadLocalRandom.current().nextInt(a, b);
+    }
 
 }

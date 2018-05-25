@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainController extends BorderPane implements Initializable {
 
@@ -92,7 +93,7 @@ public class MainController extends BorderPane implements Initializable {
 
         addurl.setOnAction(action -> {
 
-            
+
 
         });
 
@@ -101,6 +102,8 @@ public class MainController extends BorderPane implements Initializable {
             RPanelNameLabel.setText(n.song);
 
             RPanelFileLabel.setText(n.songFile.getAbsolutePath());
+
+            RPanelProgressLabel.setText(n.length);
 
         });
 
