@@ -46,9 +46,6 @@ public class MainController extends BorderPane implements Initializable {
     @FXML
     private Slider volumeslider;
 
-    @FXML
-    private Button addurl;
-
     public MainController() {
 
         FXMLLoader loader = new FXMLLoader();
@@ -83,12 +80,6 @@ public class MainController extends BorderPane implements Initializable {
             if (press.getCode().equals(KeyCode.SPACE)) {
                 SongList.getSelectionModel().getSelectedItem().togglePlay();
             }
-        });
-
-        addurl.setOnAction(action -> {
-
-
-
         });
 
         SongList.getSelectionModel().selectedItemProperty().addListener((obs, old, n) -> {

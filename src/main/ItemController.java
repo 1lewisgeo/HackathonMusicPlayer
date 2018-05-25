@@ -42,7 +42,7 @@ public class ItemController extends BorderPane implements Initializable {
         loader.setRoot(this);
         loader.setController(this);
 
-        length = rand(2, 5) + ":" + String.valueOf(rand(0, 9)) + rand(0, 9);
+        length = rand(2, 5) + ":" + String.valueOf(rand(0, 6)) + rand(0, 6);
 
         try {
             loader.load();
