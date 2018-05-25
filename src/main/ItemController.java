@@ -3,6 +3,7 @@ package main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.AudioClip;
@@ -19,6 +20,12 @@ public class ItemController extends BorderPane implements Initializable {
 
     @FXML
     private Label nameLabel;
+
+    @FXML
+    private Button pauseButton;
+
+    @FXML
+    private Button deleteButton;
 
     private String song;
     private AudioClip songClip;
@@ -41,6 +48,19 @@ public class ItemController extends BorderPane implements Initializable {
         this.songClip = new AudioClip(resource.toExternalForm());
 
         nameLabel.setText(this.song);
+
+        pauseButton.setOnAction(action -> {
+            if (!this.songClip.isPlaying()) {
+                this.songClip.play();
+            } else {
+                this.songClip.stop();
+            }
+        });
+
+        deleteButton.setOnAction(action -> {
+            this.songClip.stop();
+            App.controller.deleteItem(this);
+        });
     }
 
     @Override
