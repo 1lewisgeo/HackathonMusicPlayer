@@ -47,6 +47,9 @@ public class MainController extends BorderPane implements Initializable {
     @FXML
     private Slider volumeSlider;
 
+    @FXML
+    private Button MasterPause;
+
     public MainController() {
 
         FXMLLoader loader = new FXMLLoader();
@@ -107,6 +110,15 @@ public class MainController extends BorderPane implements Initializable {
                 }
             }
         });
+
+        MasterPause.setOnAction(a -> {
+
+            SongList.getItems().forEach(item -> {
+                item.songClip.stop();
+            });
+
+        });
+
     }
 
     public void deleteItem(ItemController item) {
