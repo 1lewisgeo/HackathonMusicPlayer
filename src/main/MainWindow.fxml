@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -48,6 +49,20 @@
                            </font>
                         </Label>
                      </top>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <bottom>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField promptText="New Event" HBox.hgrow="ALWAYS" />
+                              <Button mnemonicParsing="false" text="Add" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" top="15.0" />
+                           </padding>
+                        </HBox>
+                     </bottom>
                   </BorderPane>
                </top></BorderPane>
          </children>
