@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class MainController extends BorderPane implements Initializable {
 
     @FXML
-    private ListView<Node> SongList;
+    private ListView<ItemController> SongList;
 
     @FXML
     private ScrollPane Scroller;
