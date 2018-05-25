@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxWidth="250.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <right>
+      <HBox spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="PauseButton" mnemonicParsing="false" text="P" />
+            <Button id="DeleteButton" mnemonicParsing="false" text="D" />
+         </children>
+      </HBox>
+   </right>
+   <center>
+      <Label id="DurationLabel" text="0:00" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="12.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="15.0" right="15.0" />
+         </BorderPane.margin>
+      </Label>
+   </center>
+   <left>
+      <Label id="NameLabel" maxWidth="100.0" prefWidth="100.0" text="aljkfaslgjbalgjalgjbalkgjbalkjgbalgjk" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+   </left>
+</BorderPane>
