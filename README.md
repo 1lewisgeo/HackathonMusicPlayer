@@ -10,3 +10,4 @@ This application provides an effective and functional environment to play sound 
 * Independant volume control
 * Multiple supported file formats (.wav, .mp3, etc...)
 * An intuitive user interface
+* Support for custom themes
