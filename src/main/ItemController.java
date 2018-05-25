@@ -29,6 +29,11 @@ public class ItemController extends BorderPane implements Initializable {
     @FXML
     private Button deleteButton;
 
+    @FXML
+    private Button loop;
+
+    private boolean loopb = false;
+
     public File songFile;
     public String song;
     private AudioClip songClip;
@@ -62,6 +67,8 @@ public class ItemController extends BorderPane implements Initializable {
             this.togglePlay();
         });
 
+        loop.setOnAction(a -> loopb = !loopb);
+
         durationLabel.setText(length);
 
         deleteButton.setOnAction(action -> {
@@ -72,6 +79,9 @@ public class ItemController extends BorderPane implements Initializable {
 
     public void togglePlay() {
         if (!this.songClip.isPlaying()) {
+            if (loopb) {
+                this.songClip.setCycleCount(999);
+            }
             this.songClip.play();
             pauseButton.setText("▌▌");
         } else {

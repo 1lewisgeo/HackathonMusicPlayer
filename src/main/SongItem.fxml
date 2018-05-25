@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxWidth="250.0" prefWidth="250.0" styleClass="songitem" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxWidth="270.0" prefWidth="270.0" styleClass="songitem" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
@@ -16,11 +16,12 @@
          <children>
             <Button id="PauseButton" fx:id="pauseButton" mnemonicParsing="false" text="▶" />
             <Button id="DeleteButton" fx:id="deleteButton" mnemonicParsing="false" text="D" />
+            <Button fx:id="loop" mnemonicParsing="false" text="L" />
          </children>
       </HBox>
    </right>
    <center>
-      <Label id="DurationLabel" fx:id="durationLabel" text="0:00" BorderPane.alignment="CENTER">
+      <Label id="DurationLabel" fx:id="durationLabel" minWidth="30.0" prefHeight="15.0" prefWidth="31.0" text="0:00" BorderPane.alignment="CENTER">
          <font>
             <Font size="12.0" />
          </font>
