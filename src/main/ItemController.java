@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.AudioClip;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,10 +28,11 @@ public class ItemController extends BorderPane implements Initializable {
     @FXML
     private Button deleteButton;
 
+    private File songFile;
     private String song;
     private AudioClip songClip;
 
-    public ItemController(String song) {
+    public ItemController(File songFile) {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ItemController.class.getResource("SongItem.fxml"));
@@ -43,9 +45,10 @@ public class ItemController extends BorderPane implements Initializable {
             throw new RuntimeException(e);
         }
 
-        this.song = song;
-        final URL resource = getClass().getResource(this.song);
-        this.songClip = new AudioClip(resource.toExternalForm());
+        this.songFile = songFile;
+        this.song = this.songFile.getName();
+
+        this.songClip = new AudioClip("file:" + this.songFile.getAbsolutePath().replaceAll(" ", "%20"));
 
         nameLabel.setText(this.song);
 

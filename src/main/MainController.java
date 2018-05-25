@@ -5,9 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,7 +44,14 @@ public class MainController extends BorderPane implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SongList.getItems().add(new ItemController("music.mp3"));
+        FileButton.setOnAction(action -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Audio Clip");
+            File file = fileChooser.showOpenDialog(App.window);
+            SongList.getItems().add(new ItemController(file));
+        });
+
+//        SongList.getItems().add(new ItemController("music.mp3"));
     }
 
     public void deleteItem(ItemController item) {
