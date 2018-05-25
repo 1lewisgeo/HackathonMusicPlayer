@@ -31,7 +31,7 @@ public class ItemController extends BorderPane implements Initializable {
     public File songFile;
     public String song;
     private AudioClip songClip;
-    
+
     public ItemController(File songFile) {
 
         FXMLLoader loader = new FXMLLoader();
@@ -54,19 +54,23 @@ public class ItemController extends BorderPane implements Initializable {
         nameLabel.setText(this.song);
 
         pauseButton.setOnAction(action -> {
-            if (!this.songClip.isPlaying()) {
-                this.songClip.play();
-                pauseButton.setText("▌▌");
-            } else {
-                this.songClip.stop();
-                pauseButton.setText("▶");
-            }
+            this.togglePlay();
         });
 
         deleteButton.setOnAction(action -> {
             this.songClip.stop();
             App.controller.deleteItem(this);
         });
+    }
+
+    public void togglePlay() {
+        if (!this.songClip.isPlaying()) {
+            this.songClip.play();
+            pauseButton.setText("▌▌");
+        } else {
+            this.songClip.stop();
+            pauseButton.setText("▶");
+        }
     }
 
     @Override
