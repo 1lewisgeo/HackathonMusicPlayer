@@ -7,4 +7,5 @@ This application provides an effective and functional environment to play sound 
 -Master sound control
 -Sound looping
 -Independant volume control
+-Multiple supported file formats (.wav, .mp3, etc...)
 -An intuitive user interface
