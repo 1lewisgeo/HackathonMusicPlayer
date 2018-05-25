@@ -2,8 +2,16 @@
     -fx-background-color: white;
 }
 
+.list-cell:selected {
+    -fx-background-color: #bcbcbc;
+}
+
 .songitem .label {
     -fx-text-fill: black;
+}
+
+.addbutton {
+    -fx-background-color: transparent;
 }
 
 /*.list-cell {

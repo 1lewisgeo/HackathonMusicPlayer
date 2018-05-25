@@ -47,6 +47,9 @@ public class MainController extends BorderPane implements Initializable {
     @FXML
     private Label RPanelProgressLabel;
 
+    @FXML
+    private Button addurl;
+
     public MainController() {
 
         FXMLLoader loader = new FXMLLoader();
@@ -87,9 +90,17 @@ public class MainController extends BorderPane implements Initializable {
 
         });
 
+        addurl.setOnAction(action -> {
+
+            
+
+        });
+
         SongList.getSelectionModel().selectedItemProperty().addListener((obs, old, n) -> {
 
+            RPanelNameLabel.setText(n.song);
 
+            RPanelFileLabel.setText(n.songFile.getAbsolutePath());
 
         });
 

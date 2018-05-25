@@ -28,8 +28,8 @@ public class ItemController extends BorderPane implements Initializable {
     @FXML
     private Button deleteButton;
 
-    private File songFile;
-    private String song;
+    public File songFile;
+    public String song;
     private AudioClip songClip;
     
     public ItemController(File songFile) {
