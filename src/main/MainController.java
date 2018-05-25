@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -76,7 +77,19 @@ public class MainController extends BorderPane implements Initializable {
             }
         });
 
-        SongList.getSelectionModel().selectedItemProperty().addListener((a, b, c) -> {
+        this.setOnKeyPressed(press -> {
+
+            if (press.equals(KeyCode.SPACE)) {
+
+
+
+            }
+
+        });
+
+        SongList.getSelectionModel().selectedItemProperty().addListener((obs, old, n) -> {
+
+
 
         });
 
