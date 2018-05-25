@@ -31,7 +31,9 @@ public class ItemController extends BorderPane implements Initializable {
 
     public File songFile;
     public String song;
-    private AudioClip songClip;
+    public AudioClip songClip;
+
+    public double volume;
 
     public String length;
 
@@ -72,7 +74,7 @@ public class ItemController extends BorderPane implements Initializable {
 
     public void togglePlay() {
         if (!this.songClip.isPlaying()) {
-            this.songClip.play();
+            this.songClip.play(volume);
             pauseButton.setText("▌▌");
         } else {
             this.songClip.stop();

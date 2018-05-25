@@ -1,5 +1,7 @@
 package main;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,7 +45,7 @@ public class MainController extends BorderPane implements Initializable {
     private Label RPanelProgressLabel;
 
     @FXML
-    private Slider volumeslider;
+    private Slider volumeSlider;
 
     public MainController() {
 
@@ -82,13 +84,28 @@ public class MainController extends BorderPane implements Initializable {
         });
 
         SongList.getSelectionModel().selectedItemProperty().addListener((obs, old, n) -> {
+            if (n != null) {
+                RPanelNameLabel.setText(n.song);
+                RPanelFileLabel.setText(n.songFile.getAbsolutePath());
+                RPanelProgressLabel.setText(n.length);
+            } else {
+                RPanelNameLabel.setText("");
+                RPanelFileLabel.setText("");
+                RPanelProgressLabel.setText("0:00");
+            }
+        });
 
-            RPanelNameLabel.setText(n.song);
+//        this.volumeSlider.valueProperty().addListener((obs, old, n) -> {
+//            SongList.getSelectionModel().getSelectedItem().volume = (double) n;
+//        });
 
-            RPanelFileLabel.setText(n.songFile.getAbsolutePath());
-
-            RPanelProgressLabel.setText(n.length);
-
+        this.volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if (SongList.getSelectionModel().getSelectedItem() != null) {
+                    SongList.getSelectionModel().getSelectedItem().volume = newValue.doubleValue() / 100;
+                }
+            }
         });
     }
 
