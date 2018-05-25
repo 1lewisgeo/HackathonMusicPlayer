@@ -27,6 +27,12 @@ public class App extends Application {
 
         App.window.setScene(App.scene);
 
+        App.window.setWidth(700);
+
+        App.window.setHeight(400);
+
+        App.window.setResizable(false);
+
         App.window.show();
 
     }
