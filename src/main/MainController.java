@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
@@ -15,7 +17,7 @@ import java.util.ResourceBundle;
 public class MainController extends BorderPane implements Initializable {
 
     @FXML
-    private ListView<?> SongList;
+    private ListView<Node> SongList;
 
     @FXML
     private ScrollPane Scroller;
@@ -43,7 +45,7 @@ public class MainController extends BorderPane implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SongList.maxWidthProperty().bind(Scroller.widthProperty());
+        SongList.minWidthProperty().bind(Scroller.widthProperty());
 
     }
 
