@@ -32,9 +32,7 @@ public class MainController extends BorderPane implements Initializable {
         loader.setController(this);
 
         try {
-
             loader.load();
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -48,10 +46,10 @@ public class MainController extends BorderPane implements Initializable {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open Audio Clip");
             File file = fileChooser.showOpenDialog(App.window);
-            SongList.getItems().add(new ItemController(file));
+            if (file != null) {
+                SongList.getItems().add(new ItemController(file));
+            }
         });
-
-//        SongList.getItems().add(new ItemController("music.mp3"));
     }
 
     public void deleteItem(ItemController item) {

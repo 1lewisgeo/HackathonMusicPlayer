@@ -31,7 +31,7 @@ public class ItemController extends BorderPane implements Initializable {
     private File songFile;
     private String song;
     private AudioClip songClip;
-
+    
     public ItemController(File songFile) {
 
         FXMLLoader loader = new FXMLLoader();
@@ -48,7 +48,8 @@ public class ItemController extends BorderPane implements Initializable {
         this.songFile = songFile;
         this.song = this.songFile.getName();
 
-        this.songClip = new AudioClip("file:" + this.songFile.getAbsolutePath().replaceAll(" ", "%20"));
+        this.songClip = new AudioClip("file:" + this.songFile.getAbsolutePath()
+                .replace(" ", "%20").replace("\\", "/"));
 
         nameLabel.setText(this.song);
 
