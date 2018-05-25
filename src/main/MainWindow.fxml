@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -20,12 +19,8 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane fx:id="Scroller" maxWidth="250.0" HBox.hgrow="ALWAYS">
-               <content>
-                  <ListView fx:id="SongList" />
-               </content>
-            </ScrollPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="SongList" minWidth="270.0" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </center>

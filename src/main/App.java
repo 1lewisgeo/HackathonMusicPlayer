@@ -25,6 +25,8 @@ public class App extends Application {
 
         App.scene = new Scene(App.controller);
 
+        App.scene.getStylesheets().add("main/App.css");
+
         App.window.setScene(App.scene);
 
         App.window.setWidth(700);

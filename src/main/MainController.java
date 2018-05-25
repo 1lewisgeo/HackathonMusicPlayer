@@ -20,9 +20,6 @@ public class MainController extends BorderPane implements Initializable {
     @FXML
     private Button FileButton;
 
-    @FXML
-    private ScrollPane Scroller;
-
     public MainController() {
 
         FXMLLoader loader = new FXMLLoader();
@@ -45,10 +42,6 @@ public class MainController extends BorderPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        SongList.minWidthProperty().bind(Scroller.widthProperty());
-
-        SongList.maxWidthProperty().bind(Scroller.widthProperty());
 
         SongList.getItems().add(new ItemController("music.mp3"));
     }
