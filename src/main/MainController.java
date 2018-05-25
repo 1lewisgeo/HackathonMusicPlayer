@@ -88,16 +88,13 @@ public class MainController extends BorderPane implements Initializable {
                 RPanelNameLabel.setText(n.song);
                 RPanelFileLabel.setText(n.songFile.getAbsolutePath());
                 RPanelProgressLabel.setText(n.length);
+                volumeSlider.setValue(SongList.getSelectionModel().getSelectedItem().volume * 100);
             } else {
                 RPanelNameLabel.setText("");
                 RPanelFileLabel.setText("");
                 RPanelProgressLabel.setText("0:00");
             }
         });
-
-//        this.volumeSlider.valueProperty().addListener((obs, old, n) -> {
-//            SongList.getSelectionModel().getSelectedItem().volume = (double) n;
-//        });
 
         this.volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
