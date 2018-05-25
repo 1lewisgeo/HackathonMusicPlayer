@@ -5,9 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
+import javafx.scene.control.Label;
 
+import javax.xml.soap.Text;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +24,27 @@ public class MainController extends BorderPane implements Initializable {
 
     @FXML
     private Button FileButton;
+
+    @FXML
+    private Label RPanelNameLabel;
+
+    @FXML
+    private Label RPanelFileLabel;
+
+    @FXML
+    private TextField RPanelEventField;
+
+    @FXML
+    private Button RPanelAddButton;
+
+    @FXML
+    private ListView<?> RPanelListView;
+
+    @FXML
+    private ProgressBar RPanelProgressBar;
+
+    @FXML
+    private Label RPanelProgressLabel;
 
     public MainController() {
 
