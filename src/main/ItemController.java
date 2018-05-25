@@ -25,7 +25,7 @@ public class ItemController extends BorderPane implements Initializable {
     private Label nameLabel;
 
     @FXML
-    private Button pauseButton;
+    public Button pauseButton;
 
     @FXML
     private Button deleteButton;
@@ -82,6 +82,46 @@ public class ItemController extends BorderPane implements Initializable {
             pauseButton.setText("▶");
         });
     }
+
+    public ItemController(String URL) {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ItemController.class.getResource("SongItem.fxml"));
+        loader.setRoot(this);
+        loader.setController(this);
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        this.mp = new MediaPlayer(new Media(URL));
+
+        this.song = this.mp.getStatus().name();
+
+        nameLabel.setText(this.song);
+
+        length = rand(0, 3) + ":" + String.valueOf(rand(0, 6)) + rand(0, 9);
+
+        pauseButton.setOnAction(action -> {
+            this.togglePlay();
+        });
+
+        loop.setOnAction(a -> loopb = !loopb);
+
+        durationLabel.setText(length);
+
+        deleteButton.setOnAction(action -> {
+            this.mp.stop();
+            App.controller.deleteItem(this);
+        });
+
+        mp.setOnEndOfMedia(() -> {
+            pauseButton.setText("▶");
+        });
+    }
+
 
     public void togglePlay() {
         if (!mp.getStatus().equals(MediaPlayer.Status.PLAYING)) {
